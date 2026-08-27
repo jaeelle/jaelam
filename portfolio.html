@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Elena Marsh — Hand Model</title>
+<meta name="description" content="Hand modeling portfolio and specs for booking.">
+
+<!--
+=====================================================================
+  HOW TO EDIT THIS PAGE
+  1. Search for "EDIT:" comments — every one marks something to change.
+  2. Replace the four image URLs (search "IMAGE:") with your own photos.
+     Easiest free hosting for images: imgur.com (get the "direct link").
+  3. Replace name, measurements, bio, and contact details.
+  4. To publish with a permanent link, see the chat message for
+     step-by-step hosting instructions (GitHub Pages / Netlify).
+=====================================================================
+-->
+
+<style>
+  :root{
+    --porcelain:#faf7f2;
+    --graphite:#2a2622;
+    --clay:#c98f6b;
+    --sage:#8a9482;
+    --hairline:#d8cfc2;
+    --card:#ffffff;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--porcelain);
+    color:var(--graphite);
+    font-family:'Inter', -apple-system, sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3, .display{
+    font-family:'Fraunces', Georgia, serif;
+    font-weight:500;
+    letter-spacing:-0.01em;
+  }
+
+  .mono{
+    font-family:'IBM Plex Mono', monospace;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+  }
+
+  a{color:inherit;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    min-height:100svh;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    overflow:hidden;
+  }
+  .hero-img{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    filter:saturate(0.92);
+  }
+  .hero-scrim{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg, rgba(42,38,34,0) 40%, rgba(42,38,34,0.85) 100%);
+  }
+  .hero-content{
+    position:relative;
+    padding:0 6vw 5vh;
+    color:#fff;
+    z-index:2;
+  }
+  .eyebrow{
+    font-size:0.72rem;
+    color:var(--clay);
+    margin-bottom:0.9rem;
+  }
+  .hero h1{
+    font-size:clamp(2.6rem, 7vw, 5.2rem);
+    margin:0 0 0.4rem;
+    line-height:0.98;
+  }
+  .hero .tagline{
+    font-size:clamp(1rem, 1.6vw, 1.25rem);
+    color:#e9e2d8;
+    max-width:32ch;
+    font-weight:300;
+  }
+
+  nav{
+    position:fixed;
+    top:0; left:0; right:0;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:1.6rem 6vw;
+    z-index:10;
+    font-size:0.78rem;
+    mix-blend-mode:difference;
+    color:#fff;
+  }
+  nav a{
+    text-decoration:none;
+    margin-left:1.8rem;
+  }
+  nav a:hover{ color: var(--clay); }
+
+  section{
+    padding:7rem 6vw;
+    max-width:1100px;
+    margin:0 auto;
+  }
+
+  /* ---------- SPEC SHEET (signature element) ---------- */
+  .specsheet-wrap{
+    background:var(--graphite);
+    color:var(--porcelain);
+  }
+  .specsheet-wrap section{ padding:6rem 6vw; }
+  .spec-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    border-bottom:1px solid rgba(250,247,242,0.25);
+    padding-bottom:1.2rem;
+    margin-bottom:1rem;
+  }
+  .spec-head h2{ margin:0; font-size:1.8rem; }
+  .spec-head .mono{ font-size:0.68rem; color:var(--clay); }
+
+  .spec-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+  }
+  .spec-row{
+    display:flex;
+    justify-content:space-between;
+    padding:1.1rem 0;
+    border-bottom:1px dashed rgba(250,247,242,0.2);
+    padding-right:2rem;
+  }
+  .spec-row .label{
+    font-size:0.7rem;
+    color:#bdb3a3;
+  }
+  .spec-row .value{
+    font-family:'Fraunces', serif;
+    font-size:1.15rem;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap:4rem;
+    align-items:start;
+  }
+  .about-grid img{
+    width:100%;
+    aspect-ratio:4/5;
+    object-fit:cover;
+  }
+  .about-grid h2{ font-size:2.2rem; margin-top:0;}
+  .about-grid p{ line-height:1.75; color:#4a443c; font-size:1.02rem; }
+
+  /* ---------- GALLERY ---------- */
+  .gallery-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    margin-bottom:2.5rem;
+  }
+  .gallery-head h2{ font-size:2.2rem; margin:0; }
+  .gallery{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:0.6rem;
+  }
+  .gallery figure{
+    margin:0;
+    overflow:hidden;
+    position:relative;
+    aspect-ratio:3/4;
+  }
+  .gallery img{
+    width:100%; height:100%;
+    object-fit:cover;
+    transition:transform 0.6s ease;
+  }
+  .gallery figure:hover img{ transform:scale(1.06); }
+  .gallery figcaption{
+    position:absolute;
+    bottom:0; left:0; right:0;
+    padding:0.7rem 0.9rem;
+    font-size:0.68rem;
+    color:#fff;
+    background:linear-gradient(0deg, rgba(0,0,0,0.55), transparent);
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .exp-list{ list-style:none; padding:0; margin:0; }
+  .exp-list li{
+    display:flex;
+    gap:2rem;
+    padding:1.3rem 0;
+    border-bottom:1px solid var(--hairline);
+  }
+  .exp-list .year{ font-size:0.75rem; color:var(--clay); min-width:4.5rem; }
+  .exp-list .what{ font-size:1.02rem; }
+  .exp-list .who{ color:#7d746a; font-size:0.92rem; }
+
+  /* ---------- CONTACT ---------- */
+  .contact{
+    background:var(--card);
+    border:1px solid var(--hairline);
+    padding:3.5rem;
+    text-align:center;
+  }
+  .contact h2{ font-size:2rem; margin-top:0; }
+  .contact-links{
+    display:flex;
+    justify-content:center;
+    gap:2.2rem;
+    flex-wrap:wrap;
+    margin-top:1.8rem;
+    font-size:0.85rem;
+  }
+  .contact-links a{
+    text-decoration:none;
+    border-bottom:1px solid var(--clay);
+    padding-bottom:2px;
+  }
+
+  footer{
+    text-align:center;
+    padding:2.5rem;
+    font-size:0.7rem;
+    color:#a89c8c;
+  }
+
+  @media (max-width:720px){
+    .about-grid{ grid-template-columns:1fr; }
+    .gallery{ grid-template-columns:repeat(2,1fr); }
+    nav a{ margin-left:1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="mono">E. MARSH</span>
+  <div>
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#specs">Specs</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <!-- IMAGE: replace with your best close-up hand shot, landscape orientation works best -->
+  <img class="hero-img" src="https://images.unsplash.com/photo-1519824145371-296894a0daa9?q=80&w=1600" alt="Hand model hero photo">
+  <div class="hero-scrim"></div>
+  <div class="hero-content">
+    <div class="eyebrow mono">Hand &amp; Detail Model — Based in Los Angeles</div>
+    <!-- EDIT: your name -->
+    <h1>Elena Marsh</h1>
+    <p class="tagline">Rings, watches, cosmetics, skincare, tech &amp; product detail work.</p>
+  </div>
+</header>
+
+<!-- ================= ABOUT ================= -->
+<section id="about">
+  <div class="about-grid">
+    <!-- IMAGE: portrait or clean hand shot -->
+    <img src="https://images.unsplash.com/photo-1512203492609-8f0e00990c15?q=80&w=800" alt="Portrait">
+    <div>
+      <h2>About</h2>
+      <!-- EDIT: your bio — keep it short, 3-5 sentences -->
+      <p>I've worked as a hand and detail model for five years, specializing in jewelry, beauty, and product photography. My hands are well cared-for, camera-tested, and I'm comfortable holding still for long shoot days. I bring my own reference nail kit and can match natural, French, or bare nail looks on request.</p>
+      <p>Available for print, e-commerce, and video bookings across Los Angeles and open to travel.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SPEC SHEET ================= -->
+<div class="specsheet-wrap">
+  <section id="specs">
+    <div class="spec-head">
+      <h2>Vital Statistics</h2>
+      <span class="mono">Fitting Card No. 001</span>
+    </div>
+    <div class="spec-grid">
+      <div>
+        <!-- EDIT: swap in your real measurements -->
+        <div class="spec-row"><span class="label mono">Ring Size</span><span class="value">6.5 (US)</span></div>
+        <div class="spec-row"><span class="label mono">Glove Size</span><span class="value">Small</span></div>
+        <div class="spec-row"><span class="label mono">Skin Tone</span><span class="value">Fair, neutral undertone</span></div>
+        <div class="spec-row"><span class="label mono">Nail Length</span><span class="value">Short–Medium, oval</span></div>
+      </div>
+      <div>
+        <div class="spec-row"><span class="label mono">Hand Length</span><span class="value">6.75 in</span></div>
+        <div class="spec-row"><span class="label mono">Wrist Circumference</span><span class="value">5.5 in</span></div>
+        <div class="spec-row"><span class="label mono">Skin Condition</span><span class="value">No visible veins, scars</span></div>
+        <div class="spec-row"><span class="label mono">Dominant Hand</span><span class="value">Right</span></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ================= GALLERY ================= -->
+<section id="work">
+  <div class="gallery-head">
+    <h2>Selected Work</h2>
+    <span class="mono" style="font-size:0.7rem; color:#7d746a;">Tap to enlarge</span>
+  </div>
+  <div class="gallery">
+    <!-- IMAGE: replace all 6 with your own portfolio shots -->
+    <figure><img src="https://images.unsplash.com/photo-1611085583191-a3b181a88401?q=80&w=800" alt="Ring detail"><figcaption>Jewelry — Ring Detail</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1523293182086-7651a899d37f?q=80&w=800" alt="Watch detail"><figcaption>Watch — Product Shot</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?q=80&w=800" alt="Cosmetics"><figcaption>Beauty — Hand Cream</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1556228720-195a672e8a03?q=80&w=800" alt="Tech product"><figcaption>Tech — Device Hold</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=800" alt="Food styling"><figcaption>Food — Styling Shot</figcaption></figure>
+    <figure><img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?q=80&w=800" alt="Skincare"><figcaption>Skincare — Texture</figcaption></figure>
+  </div>
+</section>
+
+<!-- ================= EXPERIENCE ================= -->
+<section id="experience">
+  <h2 style="font-size:2.2rem;">Experience</h2>
+  <ul class="exp-list">
+    <!-- EDIT: your real credits, most recent first -->
+    <li><span class="year mono">2026</span><div><div class="what">National jewelry catalog — hand &amp; ring detail</div><div class="who">Client name / agency</div></div></li>
+    <li><span class="year mono">2025</span><div><div class="what">Skincare brand — e-commerce product shots</div><div class="who">Client name / agency</div></div></li>
+    <li><span class="year mono">2024</span><div><div class="what">Watch brand — print campaign</div><div class="who">Client name / agency</div></div></li>
+  </ul>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section id="contact">
+  <div class="contact">
+    <h2>Book Me</h2>
+    <!-- EDIT: your contact info -->
+    <p>Available for print, digital, and video shoots.<br>Rate sheet and availability on request.</p>
+    <div class="contact-links">
+      <a href="mailto:youremail@example.com">Email</a>
+      <a href="tel:+10000000000">Phone</a>
+      <a href="https://instagram.com/yourhandle" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.modelmayhem.com/yourprofile" target="_blank" rel="noopener">Model Mayhem</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Elena Marsh — Hand Model &nbsp;·&nbsp; Los Angeles, CA
+</footer>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;500;600&family=Inter:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+</body>
+</html>
