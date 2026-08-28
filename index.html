@@ -207,6 +207,19 @@
     color:#fff;
     background:linear-gradient(0deg, rgba(0,0,0,0.55), transparent);
   }
+  .reel-grid{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:1.2rem;
+}
+.reel-embed{
+  display:flex;
+  justify-content:center;
+  overflow:hidden;
+}
+@media (max-width:720px){
+  .reel-grid{ grid-template-columns:1fr; }
+}
 
   /* ---------- CONTACT ---------- */
   .contact{
@@ -324,6 +337,28 @@
     <figure><img src="images/hands/sunstick_gem.jpeg" alt="Skincare"><figcaption>Skincare — Texture</figcaption></figure>
   </div>
 </section>
+
+  <!-- ================= MANICURE REELS ================= -->
+<section id="manicures">
+  <div class="gallery-head">
+    <h2>Manicure Reels</h2>
+    <span class="mono" style="font-size:0.7rem; color:#7d746a;">Nails by @friendhandle</span>
+  </div>
+  <div class="reel-grid">
+    <div class="reel-embed">
+      <!-- EDIT: paste your first Instagram embed code here -->
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/CjYlc6vDgPw/" data-instgrm-version="14"></blockquote>
+    </div>
+    <div class="reel-embed">
+      <!-- EDIT: paste your second Instagram embed code here -->
+    </div>
+    <div class="reel-embed">
+      <!-- EDIT: paste your third Instagram embed code here -->
+    </div>
+  </div>
+</section>
+
+<script async src="//www.instagram.com/embed.js"></script>
 
 
 <!-- ================= CONTACT ================= -->
